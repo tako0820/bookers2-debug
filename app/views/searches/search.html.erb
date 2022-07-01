@@ -1,0 +1,48 @@
+<h2>Results index</h2>
+
+<table class="table table-hover table-inverse">
+
+  <% if @range == "User" %>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Introduction</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <%= link_to user_path(user.id) do %>
+          <tr>
+            <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
+            <td><%= user.name %></td>
+            <td><%= user.introduction %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  <% else %>
+
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <%= link_to book_path(book.id) do %>
+          <tr>
+            <td></td>
+            <td><%= book.title %></td>
+            <td><%= book.body %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>
