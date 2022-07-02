@@ -14,13 +14,15 @@
 
     <tbody>
       <% @users.each do |user| %>
-        <%= link_to user_path(user.id) do %>
-          <tr>
-            <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
-            <td><%= user.name %></td>
-            <td><%= user.introduction %></td>
-          </tr>
-        <% end %>
+        <tr>
+          <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
+          <td>
+            <%= link_to user_path(user.id) do %>
+              <%= user.name %>
+            <% end %>
+          </td>
+          <td><%= user.introduction %></td>
+        </tr>
       <% end %>
     </tbody>
   <% else %>
@@ -35,13 +37,15 @@
     </thead>
     <tbody>
       <% @books.each do |book| %>
-        <%= link_to book_path(book.id) do %>
-          <tr>
-            <td></td>
-            <td><%= book.title %></td>
+        <tr>
+          <td></td>
+            <td>
+              <%= link_to book_path(book.id) do %>
+                <%= book.title %>
+              <% end %>
+            </td>
             <td><%= book.body %></td>
-          </tr>
-        <% end %>
+        </tr>
       <% end %>
     </tbody>
   <% end %>
