@@ -19,6 +19,7 @@ class BooksController < ApplicationController
         a.favorited_users.includes(:favorites).where(created_at: from...to).size
       }
     @book = Book.new
+
   end
 
   def create
